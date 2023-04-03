@@ -1,7 +1,13 @@
 package pl.pawel.EffectiveJava.R3_commons_methods.equals;
 
+import java.util.Objects;
+
 public final class PhoneNumber {
-    private final short areaCode, prefix, lineNo;
+    private short areaCode, prefix, lineNo;
+
+    public void setPrefix(short prefix) {
+        this.prefix = prefix;
+    }
 
     public PhoneNumber(short areaCode, short prefix, short lineNo) {
         this.areaCode = rangeCheck(areaCode, 999, "areaCode");
@@ -25,5 +31,10 @@ public final class PhoneNumber {
         return phoneNumber.lineNo == lineNo &&
                 phoneNumber.prefix == prefix &&
                 phoneNumber.areaCode == areaCode;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(areaCode, prefix, lineNo);
     }
 }
