@@ -34,6 +34,8 @@ public class PhoneNumberDemo {
         phoneNumber.setPrefix((short) 21);
         System.out.println("Phone number hashCode after changing: " + phoneNumber.hashCode());
 
+        System.out.println(phoneNumber);
+        System.out.println(phoneNumber2);
 
     }
 }
